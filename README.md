@@ -73,6 +73,7 @@ Examining the cross-validation results, it is noticeable that some folds exhibit
   <img align="center" width="600" alt="Each result of RF Regression in Cross-validation" src="https://github.com/user-attachments/assets/e09608c1-0fea-45d0-a93e-9cc85d9b7561">
 </p>
 
+Hyperparameter tuning slightly enhanced model performance by optimising key parameters. For the GBR model, the optimal parameters were a tree depth of 2, 90 models, and a learning rate of 0.1 (Table 1). For the RF Regression model, the best parameters were a tree depth of 6, 150 models, and a node size of 10 (Table 2).
 
 <table align="center">
     <thead>
@@ -90,7 +91,7 @@ Examining the cross-validation results, it is noticeable that some folds exhibit
         </tr>
     </tbody>
 </table>
-<p align="center"><b><i>Best Parameter for GBR</b></i></p>
+<p align="center"><b><i>Table 1: Best Parameter for GBR</b></i></p>
 
 
 <table align="center">
@@ -109,7 +110,11 @@ Examining the cross-validation results, it is noticeable that some folds exhibit
     </tr>
   </tbody>
 </table>
-<p align="center"><b><i>Best Parameter for RF</b></i></p>
+<p align="center"><b><i>Table 2: Best Parameter for RF</b></i></p>
+
+Implementing these parameters resulted in slight improvements in both models. For the RF model, the Mean Squared Error (MSE) decreased from 125.59 to 123.283, and the R-squared (R²) value increased from 0.161 to 0.176, indicating enhanced accuracy and reduced prediction error. The GBR model exhibited more significant improvement, with the MSE dropping from 137.663 to 129.017 and the R² value rising from 0.08 to 0.138. These enhancements suggest that while both models benefited from hyperparameter tuning, GBR showed a more notable increase in performance.
+
+Despite these improvements, both models still exhibited relatively low predictive performance, highlighting the challenges in accurately predicting song popularity. The cross-validation results showed that although individual folds had low MSEs, the overall predictive performance across all folds was more robust and generalised, reflected by higher average MSE and lower R² values. This shows that the models' generalisability is still limited, even though they can function effectively on certain data subsets. Improved predicted accuracy and resilience may require additional feature discovery and refining, as well as other modelling methods.
 
 <table align="center">
   <thead>
@@ -137,7 +142,7 @@ Examining the cross-validation results, it is noticeable that some folds exhibit
     </tr>
   </tbody>
 </table>
-<p align="center"><b><i>Random Forest Regression Results</b></i></p>
+<p align="center"><b><i>Table 3: Random Forest Regression Results</b></i></p>
 
 <table align="center">
   <thead>
@@ -165,7 +170,89 @@ Examining the cross-validation results, it is noticeable that some folds exhibit
     </tr>
   </tbody>
 </table>
-<p align="center"><b><i>Gradient Boosting Regression Results</b></i></p>
+<p align="center"><b><i>Table 4: Gradient Boosting Regression Results</b></i></p>
+
+The frequency of splits at each tree level in the Random Forest model is used to determine the importance of a feature. The findings (Table 5) show that, when split across all tree levels, the "year" of release is the most reliable indicator of song popularity. Other important features are "danceability" and "valence," which are also commonly used for splits at different levels, highlighting their crucial role in forecasting song popularity. These results highlight how each feature affects the model's predictive power differently, providing insightful information for improving model performance and guiding data interpretation.
+
+<table align="center">
+  <thead>
+    <tr>
+      <th>Features</th>
+      <th>splits (level 0)</th>
+      <th>splits (level 1)</th>
+      <th>splits (level 2)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="left">year</td>
+      <td align="right">38</td>
+      <td align="right">49</td>
+      <td align="right">65</td>
+    </tr>
+    <tr>
+      <td align="left">valence</td>
+      <td align="right">18</td>
+      <td align="right">37</td>
+      <td align="right">40</td>
+    </tr>
+    <tr>
+      <td align="left">danceability</td>
+      <td align="right">17</td>
+      <td align="right">31</td>
+      <td align="right">48</td>
+    </tr>
+        <tr>
+      <td align="left">dB</td>
+      <td align="right">16</td>
+      <td align="right">24</td>
+      <td align="right">41</td>
+    </tr>
+        <tr>
+      <td align="left">bpm</td>
+      <td align="right">15</td>
+      <td align="right">25</td>
+      <td align="right">43</td>
+    </tr>
+        <tr>
+      <td align="left">energy</td>
+      <td align="right">15</td>
+      <td align="right">31</td>
+      <td align="right">58</td>
+    </tr>
+        <tr>
+      <td align="left">liveness</td>
+      <td align="right">15</td>
+      <td align="right">20</td>
+      <td align="right">38</td>
+    </tr>
+        <tr>
+      <td align="left">duration</td>
+      <td align="right">12</td>
+      <td align="right">24</td>
+      <td align="right">45</td>
+    </tr>
+        <tr>
+      <td align="left">acousticness</td>
+      <td align="right">3</td>
+      <td align="right">18</td>
+      <td align="right">28</td>
+    </tr>
+        <tr>
+      <td align="left">speechiness</td>
+      <td align="right">1</td>
+      <td align="right">10</td>
+      <td align="right">22</td>
+    </tr>
+  </tbody>
+</table>
+<p align="center"><b><i>Table 5: Attribute Statistics – Random Forest Regression</b></i></p>
+
+<br >
+
+## Conclusion
+The findings show that although RF and GBR model performance is improved by hyperparameter adjustment, total predicted accuracy is still quite poor.  "year," "valence," and "danceability" were identified by the analysis as the three main factors that determine song popularity. The relatively low R2 values, however, imply that song popularity may be strongly influenced by other factors that have not yet been investigated. To increase forecast accuracy, future work should concentrate on adding more features and experimenting with other modelling strategies. This study emphasises how difficult it is to forecast song popularity and how important it is to keep improving models.
+
 
 
 
