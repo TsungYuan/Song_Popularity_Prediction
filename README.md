@@ -70,6 +70,11 @@ The process for implementing cross-validation for both predictive models in KNIM
   <img width="600" alt="RFR_cross validation   hyperparameter tuning" src="https://github.com/user-attachments/assets/cd5f63de-fdc4-4590-8fe6-e27bde485c7d">
 </p>
 
+<br >
+
+## Result
+To evaluate the performance of the Random Forest (RF) and Gradient Boosting Regression (GBR) models, we primarily used Mean Squared Error (MSE) and R-squared (R²). MSE measures the average squared difference between the predicted and actual values, providing insight into the prediction accuracy. R² indicates the proportion of variance in the dependent variable that is predictable from the independent variables, reflecting the model's explanatory power.
+
 
 
 
