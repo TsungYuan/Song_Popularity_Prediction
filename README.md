@@ -7,4 +7,8 @@ This study utilise a dataset initially obtained from Kaggle, comprising two file
 
 This report will run on **KNIME** to develop and compare two regression models: **Gradient Boosting Regression** and **Random Forest Regression**. The goal is to build an accurate predictive model and evaluate the performance of these two methods in predicting the popularity of music.
 
+## Exploratory Data Analysis (EDA)
+### Distribution of Target Variable
+The data indicates that most songs are quite popular, with the majority having a popularity score over 59. The mean popularity score is 66.521, indicating a negatively skewed distribution. This imbalance suggests that most songs in the dataset are relatively popular.
 
+<img align="center" width="1104" alt="distribution of popularity" src="https://github.com/user-attachments/assets/e40b5e97-03ca-47e1-9796-cadb892738ce">
