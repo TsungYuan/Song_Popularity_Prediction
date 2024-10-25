@@ -67,9 +67,3 @@ The process for implementing cross-validation for both predictive models in KNIM
 
 
 
-
-
-
-
-
-
