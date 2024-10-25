@@ -1,4 +1,4 @@
-# Song Popularity Prediction
+# Song Popularity Prediction from Spotify: Random Forest Regression and Gradient Boosting Regression
 
 ## Introduction
 Music is essential to human life, influencing emotions, behavious, and even social trends. Understanding the trends and factors that drive the popularity of music is crucial for producers and musicians, enabling them to create songs that have a wide appeal to listeners. 
