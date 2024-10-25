@@ -103,7 +103,7 @@ Hyperparameter tuning slightly enhanced model performance by optimising key para
       <th>Node Size</th>
     </tr>
   </thead>
-  <tbody align="center">
+  <tbody align="right">
     <tr>
       <td>6</td>
       <td>150</td>
