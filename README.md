@@ -46,6 +46,10 @@ Effectively managing missing values is crucial for maintaining dataset integrity
 Handling outliers is cri-cal for improving model accuracy. For this study, to enhance the predictive model's
 performance, outliers were removed using the "**Numeric Outliers**" node in KNIME, ensuring that only meaningful data points contribute to the model's training process.
 
+<p>
+    <img width="1061" alt="EDA   preprocess" src="https://github.com/user-attachments/assets/d06ef337-4b67-4155-9b35-bdc009426f74">
+</p>
+
 <br >
 
 ### Hyperparameter Tuning
@@ -59,6 +63,12 @@ For conducting the hyperparameter tuning process for GBR in KNIME, I utilised th
 
 ### Cross-Validation
 The process for implementing cross-validation for both predictive models in KNIME involves utilising the "**X-Partitioner**" and "**X-Aggregator**" nodes. Cross-validation was applied during both the hyperparameter tuning process and the final predictive modelling to ensure model robustness. Specifically, a 5-fold cross-validation was used during hyperparameter tuning to reduce processing time, while a 10-fold cross-validation was employed for the final predictive model to ensure robustness and generalizability. This dual-stage approach ensures that the models were both efficient and reliable.
+
+<p>
+  <img width="600" alt="GBR_cross validation   hyperparameter tuning" src="https://github.com/user-attachments/assets/2678bb80-f67b-4a0f-ad98-eec5b155b9e8">
+  <p> </p>
+  <img width="600" alt="RFR_cross validation   hyperparameter tuning" src="https://github.com/user-attachments/assets/cd5f63de-fdc4-4590-8fe6-e27bde485c7d">
+</p>
 
 
 
