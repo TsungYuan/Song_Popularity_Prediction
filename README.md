@@ -43,12 +43,8 @@ It is imperative to divide the data into training and testing sets before starti
 
 Effectively managing missing values is crucial for maintaining dataset integrity and model accuracy. In this analysis, the features with missing values did not exceed over 30% which is relatively low (dB, danceability, and duration), Therefore, the missing values were replaced with the mean of each feature. This was done methodically by utilising KNIME's "**Missing Value**" node, which preserved the dataset's structure for further analysis.
 
-Handling outliers is cri-cal for improving model accuracy. For this study, to enhance the predictive model's
+Handling outliers is critical for improving model accuracy. For this study, to enhance the predictive model's
 performance, outliers were removed using the "**Numeric Outliers**" node in KNIME, ensuring that only meaningful data points contribute to the model's training process.
-
-<p>
-    <img width="1061" alt="EDA   preprocess" src="https://github.com/user-attachments/assets/d06ef337-4b67-4155-9b35-bdc009426f74">
-</p>
 
 <br >
 
@@ -64,18 +60,112 @@ For conducting the hyperparameter tuning process for GBR in KNIME, I utilised th
 ### Cross-Validation
 The process for implementing cross-validation for both predictive models in KNIME involves utilising the "**X-Partitioner**" and "**X-Aggregator**" nodes. Cross-validation was applied during both the hyperparameter tuning process and the final predictive modelling to ensure model robustness. Specifically, a 5-fold cross-validation was used during hyperparameter tuning to reduce processing time, while a 10-fold cross-validation was employed for the final predictive model to ensure robustness and generalizability. This dual-stage approach ensures that the models were both efficient and reliable.
 
-<p>
-  <img width="600" alt="GBR_cross validation   hyperparameter tuning" src="https://github.com/user-attachments/assets/2678bb80-f67b-4a0f-ad98-eec5b155b9e8">
-  <p> </p>
-  <img width="600" alt="RFR_cross validation   hyperparameter tuning" src="https://github.com/user-attachments/assets/cd5f63de-fdc4-4590-8fe6-e27bde485c7d">
-</p>
-
 <br >
 
 ## Result
 To evaluate the performance of the Random Forest (RF) and Gradient Boosting Regression (GBR) models, we primarily used Mean Squared Error (MSE) and R-squared (R²). MSE measures the average squared difference between the predicted and actual values, providing insight into the prediction accuracy. R² indicates the proportion of variance in the dependent variable that is predictable from the independent variables, reflecting the model's explanatory power.
 
+Examining the cross-validation results, it is noticeable that some folds exhibited low MSE values for both RF and GBR, indicating periods of relatively good predictive performance. However, the overall cross-validation results show a lower R² and a higher MSE, reflecting a more robust and generalized prediction performance. This outcome highlights that while individual folds may perform well, the models' ability to generalize across different data splits is limited. Therefore, the models, though improved, still face challenges in consistently predicting song popularity accurately.
 
+<p>
+  <img align="center" width="600" alt="Each result of GBR in Cross-validation" src="https://github.com/user-attachments/assets/7c98576a-c958-45ff-a5e5-2cc8efaf3e12">
+  <p> </p>
+  <img align="center" width="600" alt="Each result of RF Regression in Cross-validation" src="https://github.com/user-attachments/assets/e09608c1-0fea-45d0-a93e-9cc85d9b7561">
+</p>
+
+
+<table align="center">
+    <thead>
+        <tr>
+            <th>Tree Depth</th>
+            <th>Number of Models</th>
+            <th>Learning Rate</th>
+        </tr>
+    </thead>
+    <tbody align="right">
+        <tr>
+            <td>2</td>
+            <td>90</td>
+            <td>0.1</td>
+        </tr>
+    </tbody>
+</table>
+<p align="center"><b><i>Best Parameter for GBR</b></i></p>
+
+
+<table align="center">
+  <thead>
+    <tr>
+      <th>Tree Depth</th>
+      <th>Numner of Models</th>
+      <th>Node Size</th>
+    </tr>
+  </thead>
+  <tbody align="center">
+    <tr>
+      <td>6</td>
+      <td>150</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+<p align="center"><b><i>Best Parameter for RF</b></i></p>
+
+<table align="center">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Default Parameters</th>
+      <th>Optimized Parameters</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="left">R-square</td>
+      <td align="right">0.161</td>
+      <td align="right">0.176</td>
+    </tr>
+    <tr>
+      <td align="left">MSE</td>
+      <td align="right">125.509</td>
+      <td align="right">123.283</td>
+    </tr>
+    <tr>
+      <td align="left">RMSE</td>
+      <td align="right">11.203</td>
+      <td align="right">11.103</td>
+    </tr>
+  </tbody>
+</table>
+<p align="center"><b><i>Random Forest Regression Results</b></i></p>
+
+<table align="center">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Default Parameters</th>
+      <th>Optimized Parameters</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="left">R-square</td>
+      <td align="right">0.08</td>
+      <td align="right">0.138</td>
+    </tr>
+    <tr>
+      <td align="left">MSE</td>
+      <td align="right">137.663</td>
+      <td align="right">129.017</td>
+    </tr>
+    <tr>
+      <td align="left">RMSE</td>
+      <td align="right">11.733</td>
+      <td align="right">11.359</td>
+    </tr>
+  </tbody>
+</table>
+<p align="center"><b><i>Gradient Boosting Regression Results</b></i></p>
 
 
 
