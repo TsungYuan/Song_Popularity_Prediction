@@ -12,19 +12,18 @@ This report will run on **KNIME** to develop and compare two regression models: 
 ## Exploratory Data Analysis (EDA)
 ### Distribution of Target Variable
 The data indicates that most songs are quite popular, with the majority having a popularity score over 59. The mean popularity score is 66.521, indicating a negatively skewed distribution. This imbalance suggests that most songs in the dataset are relatively popular.
+<p>
+  <img align="center" width="1104" alt="distribution of popularity" src="https://github.com/user-attachments/assets/e40b5e97-03ca-47e1-9796-cadb892738ce">
+</p>
 
-<img align="center" width="1104" alt="distribution of popularity" src="https://github.com/user-attachments/assets/e40b5e97-03ca-47e1-9796-cadb892738ce">
-
-<br >
 <br >
 
 ### Missing Values
 Checking for missing values in the dataset is a critical step in EDA. Understanding the extent and nature of missing data helps determine the appropriate handling method. In this dataset, the missing values are minimal. In particular, there are 92 missing values for the variable "dB", 57 for "danceability", and 92 for "duration". each of these variables has less than 30% missing values, allowing for efficient imputation or alternative handling methods. 
+<p>
+  <img align="center" width="1104" alt="missing value" src="https://github.com/user-attachments/assets/9f0b65cd-0a92-4e06-8bba-ed5b885e3791">
+</p>
 
-
-<img align="center" width="1104" alt="missing value" src="https://github.com/user-attachments/assets/9f0b65cd-0a92-4e06-8bba-ed5b885e3791">
-
-<br >
 <br >
 
 ### Correlation Analysis and Scatter Plot
@@ -48,7 +47,6 @@ Handling outliers is cri-cal for improving model accuracy. For this study, to en
 performance, outliers were removed using the "**Numeric Outliers**" node in KNIME, ensuring that only meaningful data points contribute to the model's training process.
 
 <br >
-<br >
 
 ### Hyperparameter Tuning
 Hyperparameter is vital for optimising the performance of predictive models.
@@ -57,7 +55,6 @@ In the hyperparameter tuning process for Random Forest Regression in KNIME, I em
 
 For conducting the hyperparameter tuning process for GBR in KNIME, I utilised the same nodes as used for Random Forest Regression. The key factors influencing the performance of the GBR model include the learning rate, the number of trees, and the tree depth. Accordingly, the hyperparameters were configured as follows: the learning rate is varied from 0.1 to 1.0, the tree depth ranges from 2 to 6, and the number of trees ranges from 70 to 170. These parameters were systematically adjusted within the specified ranges to identify the optimal configuration that maximizes the model's performance.
 
-<br >
 <br >
 
 ### Cross-Validation
